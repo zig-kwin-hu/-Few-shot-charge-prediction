@@ -1,7 +1,7 @@
 # Few-Shot Charge Prediction with Discriminative Legal Attributes
 Source code and datasets of COLING2018 paper: "Few-Shot Charge Prediction with Discriminative Legal Attributes"
 ## Dataset
-The dataset takes space of 1.2GB, please download it [here](), and  put the folder "data" under this directory. It contains following files:
+Please download the dataset [here](https://pan.baidu.com/s/1JQaAnx6tcClF0k7iU7r3_Q), and  put the folder "data" under this directory. It contains following files:
 
 * words.vec: Pre-trained word embeddings, each line contains a word and its embedding. 
 * attributes: The legal attributes for each charge.
