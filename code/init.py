@@ -79,7 +79,6 @@ def load_data_and_labels_fewshot():
 	y_attr_train = []
 	nn = 0
 
-	#fy = open('/data/disk1/private/lx/law/Re/train_y.txt','w')
 	f = open(train_path, "r")
 	content = f.readlines()
 	random.shuffle(content)
@@ -101,8 +100,6 @@ def load_data_and_labels_fewshot():
 		x_train.append(z[0])
 		y_train.append(tmp)
 		y_attr_train.append(y_attr)
-			#fy.write(str(relationhash[j]) + ' ')
-		#fy.write('\n')
 	f.close()
 	print len(x_train)
 	print 'init 3'
@@ -111,7 +108,6 @@ def load_data_and_labels_fewshot():
 	y_test = []
 	y_attr_test = []
 	la = 0
-	#fy = open('/data/disk1/private/law/Re/test_y.txt','w')
 	f = open(test_path, "r")
 	content = f.readlines()
 	for i in content:
@@ -132,9 +128,6 @@ def load_data_and_labels_fewshot():
 		x_test.append(z[0])
 		y_test.append(tmp)
 		y_attr_test.append(y_attr)
-		
-			#fy.write(str(relationhash[j]) + ' ')
-		#fy.write('\n')
 	f.close()
 	print len(x_test)
 	print 'init 4'
@@ -143,7 +136,6 @@ def load_data_and_labels_fewshot():
 	y_val = []
 	y_attr_val = []
 	la = 0
-	#fy = open('/data/disk1/private/law/Re/test_y.txt','w')
 	f = open(val_path, "r")
 	content = f.readlines()
 	for i in content:
@@ -164,19 +156,12 @@ def load_data_and_labels_fewshot():
 		x_val.append(z[0])
 		y_val.append(tmp)
 		y_attr_val.append(y_attr)
-		
-			#fy.write(str(relationhash[j]) + ' ')
-		#fy.write('\n')
+
 	f.close()
 	print len(x_val)
 	print 'init 5'
 
 	print 'relationhash',len(relationhash)
-	#for i in relationhash:
-	# 	r_list.append({'num':num_r[i],'id':i})
-	# r_list.sort(key = lambda x:x['num'],reverse = True)
-	# for i in r_list:
-	# 	fx.write(i['id'] + ' ' + str(i['num']) + '\n')
 
 	res = []
 	yz = []
@@ -205,13 +190,7 @@ def load_data_and_labels_fewshot():
 	y_val = np.array(res)
 	print 'init 6'
 
-	mean_document_length_train = sum([len(x.split()) for x in x_train])/len(x_train)
-	max_document_length_test = max([len(x.split()) for x in x_test])
-	print 'length:',mean_document_length_train, max_document_length_test
 	max_document_length = 500
-	# xlen = [len(x.split()) for x in x_train]
-	# xlen.sort(
-	# print xlen[int(len(x_train)*0.9)]
 	size = len(x_train)
 	size0 = 0
 	size1 = 0

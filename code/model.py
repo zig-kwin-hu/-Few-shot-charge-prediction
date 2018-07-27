@@ -28,12 +28,6 @@ class LSTM_MODEL(object):
 		self.input_y = tf.placeholder(tf.float32, [batch_size, num_classes])
 		self.unmapped_input_attr = tf.placeholder(tf.int32, [batch_size, num_attrs])
 		self.keep_prob = tf.placeholder(tf.float32)
-		'''
-		temp_y = 1*np.equal(Y, attr_table)
-		temp_n = -1*np.equal(N, attr_table)
-		mapped_attr_table = temp_y + temp_n
-		mapped_attr_table = np.transpose(mapped_attr_table)
-		'''
 
 		self.attr_table = tf.Variable(attr_table, trainable = False)
 		self.input_attr_mask = 1-tf.cast(tf.equal(NA, self.unmapped_input_attr),tf.int32)
@@ -46,18 +40,10 @@ class LSTM_MODEL(object):
 		self.initial_state = cell.zero_state(batch_size, tf.float32)
 
 		with tf.device("/cpu:0"), tf.name_scope("lstm_embedding"):
-			#embedding = tf.get_variable("embedding", [vocab_size, size])
 			embedding = tf.Variable(word_embeddings, trainable = False)
 			inputs = tf.nn.embedding_lookup(embedding, self.input_x)
 
-		#inputs = tf.nn.dropout(inputs, config.keep_prob)
-		# outputs = []
-		# state = self._initial_state
-		# with tf.variable_scope("RNN"):
-		# 	for time_step in range(num_steps):
-		# 		if time_step > 0: tf.get_variable_scope().reuse_variables()
-		# 		(cell_output, state) = cell(inputs[:, time_step, :], state)
-		# 		outputs.append(cell_output)
+		
 		outputs,_ = tf.nn.dynamic_rnn(cell,inputs,initial_state = self.initial_state,sequence_length=self.input_length)
 
 		self.attention(outputs, self.size)
@@ -96,7 +82,7 @@ class LSTM_MODEL(object):
 
 		self.ans = tf.argmax(self.input_y, 1)
 
-		#unused
+		#accuracy
 		with tf.name_scope("lstm_accuracy"):
 			self.lstm_accuracy = tf.reduce_mean(tf.cast(tf.equal(self.predictions,self.ans),tf.float32))
 		

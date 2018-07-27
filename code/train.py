@@ -42,9 +42,7 @@ def main(_):
 	mixcouple = [69,71]
 	mixattr = [2,3,7]
 	single_attr = [4,9]
-	#mixcouple = [93,90]
-	#mixattr = [0,3,8]
-	#init
+	
 	word2id,word_embeddings,attr_table,x_train,y_train,y_attr_train,x_test,y_test,y_attr_test,x_val,y_val,y_attr_val,namehash,length_train,length_test,length_val = load_data_and_labels_fewshot()
 	id2word = {}
 	for i in word2id:
@@ -137,8 +135,6 @@ def main(_):
 				runlist = [lstm_model.predictions,lstm_model.attr_preds,lstm_model.total_loss,lstm_model.lstm_loss,lstm_model.total_attr_loss,lstm_model.attn_weights]
 				
 				lstm_p,attr_p,t_loss,l_loss,a_loss,attn_weights = sess.run(runlist, feed_dict=feed_dict)
-
-				# print sc
 
 				return lstm_p,attr_p,t_loss,l_loss,a_loss,attn_weights
 
