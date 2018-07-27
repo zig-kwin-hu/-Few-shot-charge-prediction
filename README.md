@@ -1,5 +1,5 @@
 # Few-Shot Charge Prediction with Discriminative Legal Attributes
-Source code and datasets of COLING2018 paper: "Few-Shot Charge Prediction with Discriminative Legal Attributes"
+Source code and datasets of COLING2018 paper: "Few-Shot Charge Prediction with Discriminative Legal Attributes". [(pdf)](http://thunlp.org/~tcc/publications/coling2018_attribute.pdf)
 ## Dataset
 Please download the dataset [here](https://pan.baidu.com/s/1JQaAnx6tcClF0k7iU7r3_Q), and  put the folder "data" under this directory. It contains following files:
 
@@ -31,6 +31,6 @@ After start training,  a new folder "log" will be created.There are 4 directorie
 ## Cite
 If you use the code, please cite this paper:
   
-_Zikun Hu, Xiang Li, Cunchao Tu, Zhiyuan Liu, Maosong Sun. Few-Shot Charge Prediction with Discriminative Legal Attributes. The 27th Iinternational Conference on Computational Liguisitics (COLING 2018)._
+Zikun Hu, Xiang Li, Cunchao Tu, Zhiyuan Liu, Maosong Sun. Few-Shot Charge Prediction with Discriminative Legal Attributes. The 27th Iinternational Conference on Computational Liguisitics (COLING 2018).
 
-For more related works on network representation learning, please refer to my [homepage](http://thunlp.org/~tcc/).
+For more related works, please refer to my [homepage](http://thunlp.org/~tcc/).
